@@ -146,6 +146,14 @@ function App() {
           </div>
         ))}
       </div>
+      <div className='contact'>
+            <span>
+              contact: <a href= "mailto: laueva1219@gmail.com"> laueva1219@gmail.com</a>  
+            </span>
+            <span>
+              instagram: <a href="https://www.instagram.com/evalau.art/">@evalau.art</a>
+            </span>
+          </div>
     </div>
   );
 }
