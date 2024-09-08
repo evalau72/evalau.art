@@ -1,0 +1,200 @@
+.app{
+  padding: 20px 30px;
+  background-color: rgb(247,246,235);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+.headerContainer {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-bottom: 20px;
+}
+
+.logo {
+  width: 15vw;
+}
+
+.bio {
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+.bioDesc {
+  font-weight: 400;
+  font-size: 0.6em;
+}
+
+.warning {
+  padding: 0.75em 1em;
+  /* padding: 12px 100px; */
+  background-color: #ceebd0;
+  border-radius: 10px;
+  width: max-content;
+  box-shadow: 8px 8px 3px 1px #8cb88f;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.sectionTitle {
+  font-weight: 600;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 10px 10px 15px 10px;
+}
+
+.defaultPhoto {
+  padding: 6px; 
+  border-radius: 10px;
+  width: 100%; /* Makes the image responsive to its container */
+  height: auto; /* Maintains aspect ratio */
+  display: block; /* Removes the default inline-block spacing */
+  object-fit: cover;
+}
+
+/* .modal {
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 1;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+} */
+
+.modal {
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 1;
+  background: #f7f6eb;
+  border-radius: 8px;
+  padding: 20px 20px;
+  width: 80vw;
+  max-height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modalRed {
+  border: thick solid rgb(146,62,57);
+}
+
+.modalBlue {
+  border: thick solid rgb(32,129,166);
+}
+
+.modalGreen {
+  border: thick solid rgb(108,157,111);	
+}
+
+.closeButton {
+  background-color: rgb(247,246,235);
+  align-self: flex-end;
+  border: none;
+  outline: none;
+}
+
+.imgContainer {
+  /* width: 600px; */
+  width: fit-content;
+  /* height: 650px; */
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  align-self: center;
+}
+
+.modalPhoto {
+  /* width: 45%;
+  max-height: 50%;
+  align-self: center; */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Fit the image within the square */
+}
+
+.photoRed {
+  background-color: rgb(146,62,57);
+}
+
+.photoBlue {
+  background-color: rgb(32,129,166);	
+}
+
+.photoGreen {
+  background-color: rgb(108,157,111);	
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px; /* Adjust spacing between images */
+  justify-content: center; /* Centers images horizontally */
+  margin: 0 auto;
+}
+
+.galleryItem {
+  flex: 1 1 auto; /* Allows the items to grow and shrink as needed */
+  /* max-width: 350px; */
+  max-width: 27%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+  .galleryItem {
+    flex: 1 1 auto; /* Allows the items to grow and shrink as needed */
+    /* max-width: 350px; */
+    max-width: 33%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding-top: 30px;
+  }
+
+  .galleryItem {
+    max-width: 75%;
+  }
+
+  .logo {
+    width: 25vw;
+    padding-bottom: 10px;
+  }
+}
+
