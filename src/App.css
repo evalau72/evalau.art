@@ -53,7 +53,6 @@
 
 .warning {
   padding: 0.75em 1em;
-  /* padding: 12px 100px; */
   background-color: #ceebd0;
   border-radius: 10px;
   width: max-content;
@@ -69,7 +68,6 @@
 .section {
   display: flex;
   flex-direction: column;
-  /* padding-top: 20px; */
 }
 
 .sectionTitle {
@@ -82,28 +80,11 @@
 .defaultPhoto {
   padding: 6px; 
   border-radius: 10px;
-  width: 100%; /* Makes the image responsive to its container */
-  height: auto; /* Maintains aspect ratio */
-  display: block; /* Removes the default inline-block spacing */
+  width: 100%; 
+  height: auto; 
+  display: block;
   object-fit: cover;
 }
-
-/* .modal {
-  position: fixed;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  right: 1;
-  width: fit-content;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  padding-top: 15vh;
-  padding-bottom: 15vh;
-} */
 
 .modal {
   position: fixed;
@@ -155,12 +136,9 @@
 }
 
 .modalPhoto {
-  /* width: 45%;
-  max-height: 50%;
-  align-self: center; */
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain; /* Fit the image within the square */
+  object-fit: contain;
 }
 
 .photoRed {
@@ -184,22 +162,20 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px; /* Adjust spacing between images */
-  justify-content: center; /* Centers images horizontally */
-  margin: 0 auto;
+  gap: 32px;
+  justify-content: center;
+  margin: 0;
 }
 
 .galleryItem {
-  flex: 1 1 auto; /* Allows the items to grow and shrink as needed */
-  /* max-width: 350px; */
-  max-width: 27%;
+  flex: 1 1 auto;
+  max-width: 30%;
   box-sizing: border-box;
 }
 
 @media (max-width: 1000px) {
   .galleryItem {
-    flex: 1 1 auto; /* Allows the items to grow and shrink as needed */
-    /* max-width: 350px; */
+    flex: 1 1 auto;
     max-width: 33%;
     box-sizing: border-box;
   }
@@ -221,17 +197,18 @@
 }
 
 @media (max-width: 500px) {
+  .app {
+    overflow-x: hidden
+  }
+  
   .bio {
     font-weight: 600;
     font-size: 1.25em;
     text-align: center;
   }
 
-
-
   .subBio {
     font-size: 1.1em;
-    /* padding-bottom: 15px; */
     text-align: center;
   }
 
@@ -255,7 +232,6 @@
 
   .logo {
     width: 75vw;
-    /* padding-bottom: 9px; */
   }
 }
 
