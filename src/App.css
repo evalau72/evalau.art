@@ -1,23 +1,26 @@
 .app{
-  padding: 20px 30px;
+  padding: 30px 50px;
   background-color: rgb(247,246,235);
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: scroll;
+  gap: 20px;
 }
 
 .headerContainer {
   display: flex;
   gap: 15px;
   align-items: flex-end;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 15px;  
   padding-bottom: 20px;
 }
 
@@ -28,6 +31,12 @@
 .bio {
   font-weight: 600;
   font-size: 1.5em;
+}
+
+.subBioContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
 .bioDesc {
@@ -44,10 +53,16 @@
   box-shadow: 8px 8px 3px 1px #8cb88f;
 }
 
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .section {
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  /* padding-top: 20px; */
 }
 
 .sectionTitle {
@@ -195,6 +210,45 @@
   .logo {
     width: 25vw;
     padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .bio {
+    font-weight: 600;
+    font-size: 1.25em;
+    text-align: center;
+  }
+
+
+
+  .subBio {
+    font-size: 1.1em;
+    /* padding-bottom: 15px; */
+    text-align: center;
+  }
+
+  .header {
+    padding-bottom: 6px;
+  }
+
+  .headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .app {
+    padding-top: 30px;
+  }
+
+  .galleryItem {
+    max-width: 75%;
+  }
+
+  .logo {
+    width: 75vw;
+    /* padding-bottom: 9px; */
   }
 }
 
