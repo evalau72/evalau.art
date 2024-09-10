@@ -1,5 +1,6 @@
 .app{
-  padding: 30px 50px;
+  padding-left: 50px;
+  padding-right: 50px;
   background-color: rgb(247,246,235);
   height: 100vh;
   display: flex;
@@ -9,12 +10,17 @@
   gap: 20px;
 }
 
+u {
+  text-decoration: rgb(108,157,111) wavy underline;
+}
+
 .headerContainer {
   display: flex;
-  gap: 15px;
+  gap: 30px;
   align-items: flex-end;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-top: 30px;
+  justify-content: center;
+  width: 55%;
 }
 
 .header {
@@ -22,15 +28,20 @@
   flex-direction: column;
   gap: 15px;  
   padding-bottom: 20px;
+  flex-wrap: wrap;
+  flex-grow: 1;
 }
 
 .logo {
   width: 15vw;
+  flex-grow: 0;
 }
 
 .bio {
   font-weight: 600;
-  font-size: 1.5em;
+  font-size: 1.75em;
+  word-wrap: normal;
+  flex-grow: 0;
 }
 
 .subBioContainer {
@@ -59,6 +70,80 @@
   box-shadow: 8px 8px 3px 1px #8cb88f;
 }
 
+.filterSection {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 10px;
+  width: 100%;
+  background-color: rgb(247,246,235);
+  margin: 0;
+}
+
+.filters {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filterButtonOnRed {
+  border: solid rgb(146,62,57);
+  color: rgb(247,246,235);
+  padding: 5px 15px;
+  border-radius: 8px;
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.filterButtonOnBlue {
+  border: solid rgb(32,129,166);
+  color: rgb(247,246,235);
+  padding: 5px 15px;
+  border-radius: 8px;
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.filterButtonOnGreen {
+  border: solid rgb(108,157,111);
+  color: rgb(247,246,235);
+  padding: 5px 15px;
+  border-radius: 8px;
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.filterButtonOffRed {
+  border: solid rgb(146,62,57);
+  color: rgb(146,62,57);
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+.filterButtonOffBlue {
+  border: solid rgb(32,129,166);
+  color: rgb(32,129,166);
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+.filterButtonOffGreen {
+  border: solid rgb(108,157,111);
+  color: rgb(108,157,111);
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
 .sections {
   display: flex;
   flex-direction: column;
@@ -68,6 +153,13 @@
 .section {
   display: flex;
   flex-direction: column;
+}
+
+.filterSectionTitle {
+  font-weight: 500;
+  font-size: 1.15em;
+  text-align: center;
+  padding: 10px 10px 15px 10px;
 }
 
 .sectionTitle {
@@ -112,7 +204,7 @@
 }
 
 .modalGreen {
-  border: thick solid rgb(108,157,111);	
+  border: thick solid rgb(108,157,111);
 }
 
 .closeButton {
@@ -169,7 +261,7 @@
 
 .galleryItem {
   flex: 1 1 auto;
-  max-width: 30%;
+  max-width: 25%;
   box-sizing: border-box;
 }
 
@@ -182,10 +274,6 @@
 }
 
 @media (max-width: 768px) {
-  .app {
-    padding-top: 30px;
-  }
-
   .galleryItem {
     max-width: 75%;
   }
@@ -220,18 +308,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .app {
     padding-top: 30px;
+    width: 90%;
+    gap: 20px;
   }
 
   .galleryItem {
-    max-width: 75%;
+    max-width: 90%;
   }
 
   .logo {
     width: 75vw;
+    padding-bottom: 0px;
+  }
+
+  .contact {
+    padding-top: 0px;
   }
 }
 

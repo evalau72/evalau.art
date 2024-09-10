@@ -65,6 +65,28 @@ function Content({ src, color, name, medium, year, isVideo }) {
 }
 
 function App() {
+  // const [filterPrints, setFilterPrints] = useState(true);
+  // const [filterPaintings, setFilterPaintings] = useState(true);
+  // const [filterMixedMedia, setFilterMixedMedia] = useState(true);
+  // const [filterExhibition, setFilterExhibition] = useState(true);
+  const [filterPrints, setFilterPrints] = useState(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    return !isMobile; // Default true for non-mobile, false for mobile
+  });
+  const [filterPaintings, setFilterPaintings] = useState(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    return !isMobile;
+  });
+  const [filterMixedMedia, setFilterMixedMedia] = useState(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    return !isMobile;
+  });
+  const [filterExhibition, setFilterExhibition] = useState(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    return !isMobile;
+  });
+  const [currentBioIndex, setCurrentBioIndex] = useState(0);
+
   const prints = [
     [downTheDrain, 'Green', '"Down the drain"', 'linocut on paper', '2024', false],
     [redacted, 'Red', '"Redacted"', 'screenprint on paper', '2022', false],
@@ -90,32 +112,54 @@ function App() {
     [mindPalace, 'Green', '"Mind palace"', 'oil on canvas', '2021', false],
   ]
 
+  const mixedMedia = [
+    [banksStreetKitchen, 'Blue', '"Banks street kitchen"', 'lithograph on paper and cling wrap', '2023', false],
+    [threeWiseFools, 'Blue', '"Three wise fools"', 'collage with screenprints and linocuts', '2022', false],
+    [flowerPeople, 'Blue', '"Flower people"', 'acrylic and wire on paper', '2021', false],
+    [blueprint, 'Green', '"Blueprint"', 'paper stencil, red string', '2023', false],
+    [dragonMap, 'Red', '"Dragon map"', 'embroidery on canvas bag', '2022', false],
+  ]
+
   const homeComingExhibition = [
     [exhibitionPoster, 'Green', 'Exhibition poster', false],
     [artistStatement, 'Red', "Artist's statement", false],
     [exhibition, 'Blue', "Exhibition room", false],
-    [somp1, 'Red', '"Shadow of my past (part 1)"', 'lasercut on paper', '2023', false],
+    [somp1, 'Red', '"Shadow of my past (part 1)"', 'lasercut on paper, red string', '2023', false],
     [banksStreetKitchen, 'Blue', '"Banks street kitchen"', 'lithograph on paper and cling wrap', '2023', false],
-    [somp2, 'Red', '"Shadow of my past (part 2)"', 'lasercut on paper', '2023', false],
+    [somp2, 'Red', '"Shadow of my past (part 2)"', 'lasercut on paper, red string', '2023', false],
     [home, 'Green', '"Home"', 'oil on canvas', '2021', false],
     [threeWiseFools, 'Blue', '"Three wise fools"', 'collage with screenprints and linocuts', '2022', false],
     [dragonMap, 'Red', '"Dragon map"', 'embroidery on canvas bag', '2022', false],
     [lessOfAStranger, 'Blue', '"Less of a stranger"', 'linocut on paper', '2023', false],
-    [somp3, 'Red', '"Shadow of my past (part 3)"', 'lasercut on paper', '2023', false],
+    [somp3, 'Red', '"Shadow of my past (part 3)"', 'lasercut on paper, red string', '2023', false],
     [redacted, 'Green', '"Redacted"', 'screenprint on paper', '2022', false],
     [familyDinner, 'Blue', '"Family dinner"', 'oil on canvas', '2021', false],
-    [somp4, 'Red', '"Shadow of my past (part 4)"', 'lasercut on paper', '2023', false],
+    [somp4, 'Red', '"Shadow of my past (part 4)"', 'lasercut on paper, red string', '2023', false],
     [atoll, 'Red', '"Atoll"', 'acrylic on paper', '2022', false],
     [atollCharcoal, 'Red', '"Atoll"', 'charcoal on paper', '2022', false],
-    [blueprint, 'Green', '"Blueprint"', 'paper stencil', '2023', false],
-    [blueprintFront, 'Green', '"Blueprint"', 'paper stencil', '2023', false],
+    [blueprint, 'Green', '"Blueprint"', 'paper stencil, red string', '2023', false],
+    [blueprintFront, 'Green', '"Blueprint"', 'paper stencil, red string', '2023', false],
   ]
 
   const sections = [
-    [prints, "PRINTS"],
-    [paintings, "PAINTINGS"],
-    [homeComingExhibition, '"HOME COMING" EXHIBITION']
+    [prints, "prints", filterPrints],
+    [paintings, "paintings", filterPaintings],
+    [mixedMedia, "mixed media", filterMixedMedia],
+    [homeComingExhibition, '"Home Coming" exhibition', filterExhibition],
   ]
+
+  const bioOptions = [
+    ' is an artist that likes to make all sorts of things.',
+    ' is based in nyc, and is inspired by home - boston, hong kong, providence.',
+    ' graduated in 2023 with a BA in visual art and BS in computer science from brown university.',
+    ' loves to stare at patterns and indulge in textures, both manufactured and natural.',
+    ' made this website, with love.',
+    ' really appreciates the written language, and the unwritten language. and artisans of both.',
+  ];
+
+  const cycleText = () => {
+    setCurrentBioIndex((prevIndex) => (prevIndex + 1) % bioOptions.length);
+  };
 
   return (
     <div className="app">
@@ -123,27 +167,57 @@ function App() {
         <img src={logo} className="logo"/>
         <div className="header">
           <span className="bio">
-            Eva Lau is a mixed media artist that loves to make prints and is also an occasional programmer.
+            <u onClick={cycleText}>Eva Lau</u> {bioOptions[currentBioIndex]}
           </span>
-          <span className='subBioContainer'>
+          {/* <span className='subBioContainer'>
             <i className='subBio'> based in nyc, inspired by home</i>
             <i className='subBio'> (hong kong, bos, pvd)</i>
-          </span>
+          </span> */}
         </div>
       </div>
       {/* <div>
        <p className="warning">this site is under construction, but it welcomes all visitors :)</p>
       </div> */}
+      <div className='filterSection'>
+        <div className='filters'>
+          <button 
+            onClick={() => setFilterPrints(!filterPrints)}
+            className={filterPrints ? 'filterButtonOnRed photoRed' : 'filterButtonOffRed'}>
+              <strong>prints</strong>
+              {filterPrints && <strong>x</strong>}
+          </button>
+          <button 
+            onClick={() => setFilterPaintings(!filterPaintings)}
+            className={filterPaintings ? 'filterButtonOnGreen photoGreen' : 'filterButtonOffGreen'}>
+              <strong>paintings</strong>
+              {filterPaintings && <strong>x</strong>}
+          </button>
+          <button 
+            onClick={() => setFilterMixedMedia(!filterMixedMedia)}
+            className={filterMixedMedia ? 'filterButtonOnBlue photoBlue' : 'filterButtonOffBlue'}>
+              <strong>mixed media</strong>
+              {filterMixedMedia && <strong>x</strong>}
+          </button>
+          <button 
+            onClick={() => setFilterExhibition(!filterExhibition)}
+            className={filterExhibition ? 'filterButtonOnRed photoRed' : 'filterButtonOffRed'}>
+              <strong>exhibition</strong>
+              {filterExhibition && <strong>x</strong>}
+          </button>
+        </div>
+      </div>
       <div className='sections'>
-        {sections.map(([section, title]) => (
-          <div className='section'>
-            <span className='sectionTitle'>{title}</span>  
-            <div className='gallery'>
-              {section.map(([src,color,pieceName,medium,year,isVideo]) => (
-                <Content src={src} color={color} name={pieceName} medium={medium} year={year} isVideo={isVideo}/>
-              ))}
+        {sections.map(([section, title, filterOn]) => (
+          filterOn && (
+            <div className='section'>
+              <span className='sectionTitle'>{title}</span>  
+              <div className='gallery'>
+                {section.map(([src,color,pieceName,medium,year,isVideo]) => (
+                  <Content src={src} color={color} name={pieceName} medium={medium} year={year} isVideo={isVideo}/>
+                ))}
+              </div>
             </div>
-          </div>
+          )
         ))}
       </div>
       <div className='contact'>
