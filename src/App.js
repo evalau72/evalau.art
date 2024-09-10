@@ -65,13 +65,9 @@ function Content({ src, color, name, medium, year, isVideo }) {
 }
 
 function App() {
-  // const [filterPrints, setFilterPrints] = useState(true);
-  // const [filterPaintings, setFilterPaintings] = useState(true);
-  // const [filterMixedMedia, setFilterMixedMedia] = useState(true);
-  // const [filterExhibition, setFilterExhibition] = useState(true);
   const [filterPrints, setFilterPrints] = useState(() => {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    return !isMobile; // Default true for non-mobile, false for mobile
+    return !isMobile;
   });
   const [filterPaintings, setFilterPaintings] = useState(() => {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -169,15 +165,8 @@ function App() {
           <span className="bio">
             <u onClick={cycleText}>Eva Lau</u> {bioOptions[currentBioIndex]}
           </span>
-          {/* <span className='subBioContainer'>
-            <i className='subBio'> based in nyc, inspired by home</i>
-            <i className='subBio'> (hong kong, bos, pvd)</i>
-          </span> */}
         </div>
       </div>
-      {/* <div>
-       <p className="warning">this site is under construction, but it welcomes all visitors :)</p>
-      </div> */}
       <div className='filterSection'>
         <div className='filters'>
           <button 
