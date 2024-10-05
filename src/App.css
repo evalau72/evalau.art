@@ -24,7 +24,7 @@ u {
   align-items: flex-end;
   padding-top: 30px;
   justify-content: center;
-  width: 55%;
+  width: 75%;
 }
 
 .header {
@@ -323,7 +323,7 @@ u {
   }
 
   .logo {
-    width: 75vw;
+    width: 60vw;
     padding-bottom: 0px;
   }
 

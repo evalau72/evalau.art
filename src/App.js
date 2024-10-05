@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './assets/logo.svg';
 
 import artistStatement from './assets/artists-statement.png';
@@ -69,19 +69,52 @@ function App() {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     return !isMobile;
   });
-  const [filterPaintings, setFilterPaintings] = useState(() => {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    return !isMobile;
-  });
-  const [filterMixedMedia, setFilterMixedMedia] = useState(() => {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    return !isMobile;
-  });
-  const [filterExhibition, setFilterExhibition] = useState(() => {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    return !isMobile;
-  });
+  const [filterPaintings, setFilterPaintings] = useState(false);
+  const [filterMixedMedia, setFilterMixedMedia] = useState(false);
+  const [filterExhibition, setFilterExhibition] = useState(false)
   const [currentBioIndex, setCurrentBioIndex] = useState(0);
+  const [scrollToId, setScrollToId] = useState(null);
+
+  useEffect(() => {
+    if (scrollToId) {
+      const element = document.getElementById(scrollToId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        // const yOffset = -60; // Adjust this to match your navbar height
+        // const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+
+        // window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+  }, [scrollToId]);
+
+  const handlePrintsButton = (id) => {  
+    setFilterPrints(!filterPrints);
+    if (!filterPrints) {
+      setScrollToId(id);
+    }
+  };
+
+  const handlePaintingsButton = (id) => {
+    setFilterPaintings(!filterPaintings);
+    if (!filterPaintings) {
+      setScrollToId(id);
+    }
+  };
+
+  const handleMixedMediaButton = (id) => {
+    setFilterMixedMedia(!filterMixedMedia);
+    if (!filterMixedMedia) {
+      setScrollToId(id);
+    }
+  };
+
+  const handleExhibitionButton = (id) => {
+    setFilterExhibition(!filterExhibition);
+    if (!filterExhibition) {
+      setScrollToId(id);
+    }
+  };
 
   const prints = [
     [downTheDrain, 'Green', '"Down the drain"', 'linocut on paper', '2024', false],
@@ -147,10 +180,10 @@ function App() {
   const bioOptions = [
     ' is an artist that likes to make all sorts of things.',
     ' is based in nyc, and is inspired by home - boston, hong kong, providence.',
-    ' graduated in 2023 with a BA in visual art and BS in computer science from brown university.',
+    ' graduated from Brown University in 2023 with a BA in visual art and BS in computer science.',
     ' loves to stare at patterns and indulge in textures, both manufactured and natural.',
+    ' appreciates the written language, and the unwritten language, and artisans of both.',
     ' made this website, with love.',
-    ' really appreciates the written language, and the unwritten language. and artisans of both.',
   ];
 
   const cycleText = () => {
@@ -170,25 +203,25 @@ function App() {
       <div className='filterSection'>
         <div className='filters'>
           <button 
-            onClick={() => setFilterPrints(!filterPrints)}
+            onClick={() => handlePrintsButton("prints")}
             className={filterPrints ? 'filterButtonOnRed photoRed' : 'filterButtonOffRed'}>
               <strong>prints</strong>
               {filterPrints && <strong>x</strong>}
           </button>
           <button 
-            onClick={() => setFilterPaintings(!filterPaintings)}
+            onClick={() => handlePaintingsButton("paintings")}
             className={filterPaintings ? 'filterButtonOnGreen photoGreen' : 'filterButtonOffGreen'}>
               <strong>paintings</strong>
               {filterPaintings && <strong>x</strong>}
           </button>
           <button 
-            onClick={() => setFilterMixedMedia(!filterMixedMedia)}
+            onClick={() => handleMixedMediaButton("mixed media")}
             className={filterMixedMedia ? 'filterButtonOnBlue photoBlue' : 'filterButtonOffBlue'}>
               <strong>mixed media</strong>
               {filterMixedMedia && <strong>x</strong>}
           </button>
           <button 
-            onClick={() => setFilterExhibition(!filterExhibition)}
+            onClick={() => handleExhibitionButton('"Home Coming" exhibition')}
             className={filterExhibition ? 'filterButtonOnRed photoRed' : 'filterButtonOffRed'}>
               <strong>exhibition</strong>
               {filterExhibition && <strong>x</strong>}
@@ -199,7 +232,7 @@ function App() {
         {sections.map(([section, title, filterOn]) => (
           filterOn && (
             <div className='section'>
-              <span className='sectionTitle'>{title}</span>  
+              <span id={title} className='sectionTitle'>{title}</span>  
               <div className='gallery'>
                 {section.map(([src,color,pieceName,medium,year,isVideo]) => (
                   <Content src={src} color={color} name={pieceName} medium={medium} year={year} isVideo={isVideo}/>
