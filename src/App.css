@@ -1,11 +1,33 @@
+.appContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  /* font-family: 'Kosugi', sans-serif; */
+  color: rgb(41, 19, 16);
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
 .hidden {
   display: none;
 }
 
+.modal-open {
+  overflow: hidden;
+}
+
 .app{
-  padding-left: 50px;
-  padding-right: 50px;
-  background-color: rgb(247,246,235);
+  padding-left: 90px;
+  padding-right: 90px;
+  background-color: rgb(247,246,235,0.9);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,9 +44,9 @@ u {
   display: flex;
   gap: 30px;
   align-items: flex-end;
-  padding-top: 30px;
+  padding-top: 50px;
   justify-content: center;
-  width: 75%;
+  width: 100%;
 }
 
 .header {
@@ -37,12 +59,12 @@ u {
 }
 
 .logo {
-  width: 15vw;
+  width: 12vw;
   flex-grow: 0;
 }
 
 .bio {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.75em;
   word-wrap: normal;
   flex-grow: 0;
@@ -66,6 +88,15 @@ u {
   padding: 50px 0px;
 }
 
+.contact a {
+  color: rgb(108,157,111);
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
 .warning {
   padding: 0.75em 1em;
   background-color: #ceebd0;
@@ -85,8 +116,12 @@ u {
   z-index: 1000;
   padding: 10px;
   width: 100%;
-  background-color: rgb(247,246,235);
+  /* background-color: rgb(247,246,235); */
   margin: 0;
+}
+
+.filterSection a {
+  text-decoration: none;
 }
 
 .filters {
@@ -95,6 +130,18 @@ u {
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.Red {
+  color:rgb(146,62,57);
+}
+
+.Green {
+  color:rgb(108,157,111);
+}
+
+.Blue {
+  color:rgb(32,129,166);
 }
 
 .filterButtonOnRed {
@@ -130,6 +177,7 @@ u {
 .filterButtonOffRed {
   border: solid rgb(146,62,57);
   color: rgb(146,62,57);
+  background-color: rgba(247, 246, 235, 0.9);
   padding: 5px 15px;
   border-radius: 8px;
 }
@@ -137,6 +185,7 @@ u {
 .filterButtonOffBlue {
   border: solid rgb(32,129,166);
   color: rgb(32,129,166);
+  background-color: rgba(247, 246, 235, 0.9);
   padding: 5px 15px;
   border-radius: 8px;
 }
@@ -144,6 +193,7 @@ u {
 .filterButtonOffGreen {
   border: solid rgb(108,157,111);
   color: rgb(108,157,111);
+  background-color: rgba(247, 246, 235, 0.9);
   padding: 5px 15px;
   border-radius: 8px;
 }
@@ -173,13 +223,18 @@ u {
   padding: 10px 10px 15px 10px;
 }
 
-.defaultPhoto {
+/* .defaultPhoto {
   padding: 6px; 
-  border-radius: 10px;
   width: 100%; 
   height: auto; 
   display: block;
   object-fit: cover;
+} */
+
+.defaultPhoto {
+  height: 400px;        /* choose your row height */
+  width: auto;
+  display: block;
 }
 
 .modal {
@@ -201,15 +256,27 @@ u {
 }
 
 .modalRed {
-  border: thick solid rgb(146,62,57);
+  border: medium solid rgb(146,62,57);
+  color: rgb(146,62,57);
 }
 
 .modalBlue {
   border: thick solid rgb(32,129,166);
+  color: rgb(32,129,166);
 }
 
 .modalGreen {
   border: thick solid rgb(108,157,111);
+  color: rgb(108,157,111);
+}
+
+.xButton {
+  /* align-self: flex-end; */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  left: auto;
+  z-index: 100;
 }
 
 .closeButton {
@@ -232,10 +299,23 @@ u {
   align-self: center;
 }
 
-.modalPhoto {
+.imageAndArrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+.modalPhoto {
+  max-width: 80vw; /* Ensure the photo scales to the container width */
+  max-height: 70vh;
+  /* object-fit: contain; */
+  align-self: center;
+  width: auto; /* Allow the width to adjust based on the aspect ratio */
+  height: auto; /* Keep the height in proportion to the width */
 }
 
 .photoRed {
@@ -256,36 +336,55 @@ u {
   align-items: center;
 }
 
-.gallery {
+/* .gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
   justify-content: center;
   margin: 0;
+} */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .galleryItem {
-  flex: 1 1 auto;
-  max-width: 25%;
+  /* flex: 1 1 auto;
+  max-width: 25%; */
   box-sizing: border-box;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 1000px) {
-  .galleryItem {
+  /* .galleryItem {
     flex: 1 1 auto;
     max-width: 33%;
     box-sizing: border-box;
-  }
+  } */
+
+
 }
 
 @media (max-width: 768px) {
-  .galleryItem {
+  /* .galleryItem {
     max-width: 75%;
-  }
+  } */
 
   .logo {
     width: 25vw;
     padding-bottom: 10px;
+  }
+
+  .defaultPhoto {
+    height: 200px;        /* choose your row height */
+    width: auto;
+    display: block;
   }
 }
 
@@ -318,17 +417,33 @@ u {
     gap: 20px;
   }
 
-  .galleryItem {
+  /* .galleryItem {
     max-width: 90%;
-  }
+  } */
 
   .logo {
-    width: 60vw;
-    padding-bottom: 0px;
+    width: 40vw;
+    padding-bottom: 10px;
   }
 
   .contact {
     padding-top: 0px;
+  }
+
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .galleryItem {
+    width: 85vw;
+    max-width: 85vw;
+    justify-content: center;
+  }
+
+  .defaultPhoto {
+    width: 100%;
+    height: auto;
   }
 }
 
