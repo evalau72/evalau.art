@@ -36,6 +36,32 @@
   gap: 20px;
 }
 
+.bioLink {
+  color: rgb(41, 19, 16);
+  text-decoration: rgb(108,157,111) wavy underline;
+  font-weight: 700;
+
+  display: inline-block;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.bioLink:hover {
+  animation: bioHoverBounce 3s;
+}
+
+@keyframes bioHoverBounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-40px); }
+  100% { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bioLink {
+    animation: none;
+  }
+}
+
 u {
   text-decoration: rgb(108,157,111) wavy underline;
 }
@@ -76,9 +102,29 @@ u {
   gap: 1px;
 }
 
+.biopic {
+  width: 30vw;
+}
+
 .bioDesc {
   font-weight: 400;
   font-size: 0.6em;
+}
+
+.artistBioText {
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+.artistStatementContainer {
+  font-weight: 400;
+  font-size: 1.1em;
+  word-wrap: normal;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .contact {
@@ -444,6 +490,26 @@ u {
   .defaultPhoto {
     width: 100%;
     height: auto;
+  }
+
+  .artistBioText {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .artistStatementContainer {
+    font-weight: 400;
+    font-size: 1.1em;
+    word-wrap: normal;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .biopic {
+    width: 70vw;
   }
 }
 
