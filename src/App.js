@@ -45,15 +45,6 @@ import bioPic from './assets/biopic.jpg'
 
 /* ---------- DATA ---------- */
 
-const bioOptions = [
-  ' is an artist that likes to make all sorts of things.',
-  ' is based in nyc, and is inspired by home - boston, hong kong, providence.',
-  ' graduated from Brown University in 2023 with a BA in visual art and BS in computer science.',
-  ' loves to stare at patterns and indulge in textures, both manufactured and natural.',
-  ' appreciates the written language, and the unwritten language, and artisans of both.',
-  ' made this website, with love.',
-];
-
 const prints = [
   [downTheDrain, 'Green', '"Down the drain"', 'linocut on paper', '2024', false],
   [redacted, 'Red', '"Redacted"', 'screenprint on paper', '2022', false],

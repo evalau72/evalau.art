@@ -27,7 +27,7 @@
 .app{
   padding-left: 90px;
   padding-right: 90px;
-  background-color: rgb(247,246,235,0.9);
+  background-color: rgb(247,246,235,0.8);
   height: 100vh;
   display: flex;
   flex-direction: column;
