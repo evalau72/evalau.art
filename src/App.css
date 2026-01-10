@@ -20,6 +20,22 @@
   display: none;
 }
 
+.events { 
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25); /* subtle dim */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1999;
+}
+
 .modal-open {
   overflow: hidden;
 }
@@ -32,7 +48,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   gap: 20px;
 }
 
@@ -47,13 +64,15 @@
 }
 
 .bioLink:hover {
-  animation: bioHoverBounce 3s;
+  animation: bioHoverJiggle 0.35s ease-in-out;
 }
 
-@keyframes bioHoverBounce {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-40px); }
-  100% { transform: translateY(0); }
+@keyframes bioHoverJiggle {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-3px); }
+  50%  { transform: translateX(3px); }
+  75%  { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -150,6 +169,37 @@ u {
   width: max-content;
   box-shadow: 8px 8px 3px 1px #8cb88f;
 }
+
+.housesittingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  text-align: center;
+}
+
+.embeddedSiteContainer {
+  width: 80vw;       /* container width */
+  max-width: 800px;  /* max width for desktop */
+  height: 50vh;      /* container height */
+  max-height: 600px; /* max height for desktop */
+  overflow: hidden;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.embeddedSiteIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
 
 .filterSection {
   display: flex;
@@ -278,7 +328,7 @@ u {
 } */
 
 .defaultPhoto {
-  height: 400px;        /* choose your row height */
+  height: 450px;        /* choose your row height */
   width: auto;
   display: block;
 }
@@ -382,14 +432,6 @@ u {
   align-items: center;
 }
 
-/* .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  justify-content: center;
-  margin: 0;
-} */
-
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -398,21 +440,54 @@ u {
   align-items: flex-start;
 }
 
+.galleryItemWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.galleryLabel {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  text-align: center;
+  line-height: 1.2;
+  opacity: 0.85;
+}
+
+.galleryLabel span {
+  display: block;
+}
+
 .galleryItem {
-  /* flex: 1 1 auto;
-  max-width: 25%; */
   box-sizing: border-box;
   flex: 0 0 auto;
   display: flex;
   align-items: center;
 }
 
+.galleryArrow {
+  cursor: pointer;
+  z-index: 2;
+  padding: 4px;
+}
+
+.galleryMedia {
+  cursor: pointer;           /* pointer on hover */
+  display: inline-block;     /* needed for transform */
+  transition: transform 0.2s ease; /* smooth grow effect */
+}
+
+.galleryMedia:hover {
+  transform: scale(1.05);   /* slight growth on hover */
+}
+
+.modalPhoto {
+  cursor: default;           /* normal cursor in modal */
+  transition: none;          /* no growth in modal */
+  transform: none;           /* ensures modal image stays original size */
+}
+
 @media (max-width: 1000px) {
-  /* .galleryItem {
-    flex: 1 1 auto;
-    max-width: 33%;
-    box-sizing: border-box;
-  } */
 
 
 }
@@ -432,11 +507,33 @@ u {
     width: auto;
     display: block;
   }
+  
 }
 
-@media (max-width: 500px) {
+@media (max-width: 512px) {
   .app {
-    overflow-x: hidden
+    overflow-x: hidden;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .embeddedSiteContainer {
+    width: 80vw;       /* container width */
+    max-width: 400px;  /* max width for desktop */
+    height: 50vh;      /* container height */
+    max-height: 600px; /* max height for desktop */
+    overflow: hidden;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+  }
+
+  .embeddedSiteIframe {
+    width: 100%;
+    height: 100%;
+    border: none;
   }
   
   .bio {
@@ -448,6 +545,11 @@ u {
   .subBio {
     font-size: 1.1em;
     text-align: center;
+  }
+
+  .artistBioText {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .header {
@@ -462,10 +564,6 @@ u {
     width: 90%;
     gap: 20px;
   }
-
-  /* .galleryItem {
-    max-width: 90%;
-  } */
 
   .logo {
     width: 40vw;

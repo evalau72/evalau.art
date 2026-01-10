@@ -24,7 +24,16 @@ import ferrisWheel from './assets/ferris-wheel.jpg';
 import flowerPeople from './assets/flower-people.jpg';
 import generations from './assets/generations.jpg';
 import glassWater from './assets/glass-and-water.jpg';
+import handBag1 from './assets/hand_bag_1.webp';
+import handBag2 from './assets/hand_bag_2.webp';
+import handBag3 from './assets/hand_bag_3.webp';
 import home from './assets/home.jpg';
+import homeShirts1 from './assets/home_shirts_1.webp';
+import homeShirts2 from './assets/home_shirts_2.webp';
+import homeShirts3 from './assets/home_shirts_3.webp';
+import homeShirts4 from './assets/home_shirts_4.webp';
+import homeShirts5 from './assets/home_shirts_5.webp';
+import homeShirts6 from './assets/home_shirts_6.webp';
 import hongKong from './assets/hong-kong.jpg';
 import kitchenTable from './assets/banks-street-kitchen-table.jpg';
 import kitchenShelves from './assets/banks-street-kitchen-shelves.jpg';
@@ -32,6 +41,9 @@ import kittyLove from './assets/kitty-love.jpg';
 import lessOfAStranger from './assets/less-of-a-stranger.jpg';
 import lessOfAStrangerBlack from './assets/less-of-a-stranger-black.jpg';
 import lessOfAStrangerGold from './assets/less-of-a-stranger-gold.jpg';
+import meditations1 from './assets/meditations_1_hr.webp';
+import meditations2 from './assets/meditations_2_hr.webp';
+import meditations3 from './assets/meditations_3_hr.webp';
 import mindPalace from './assets/mind-palace.jpg';
 import redacted from './assets/redacted.jpg';
 import somp1 from './assets/somp1.jpg';
@@ -40,120 +52,510 @@ import somp3 from './assets/somp3.jpg';
 import somp4 from './assets/somp4.jpg';
 import threeWiseFools from './assets/three-wise-fools.jpg';
 import waterTiles from './assets/water-tiles.jpg';
+import welcome1 from './assets/welcome_1_hr.webp'
+import welcome2 from './assets/welcome_2_hr.webp'
+import welcome3 from './assets/welcome_3_hr.webp'
+import wool1 from './assets/wool_hat_1.jpg';
+import wool2 from './assets/wool_hat_2_result.webp';
+import wool3 from './assets/wool_hat_3_result.webp';
+import wool4 from './assets/wool_hat_4_result.webp';
 
-import bioPic from './assets/biopic.jpg'
+import bioPic from './assets/biopic.jpg';
 
 /* ---------- DATA ---------- */
 
+const fabric = [
+  {
+    media: [
+      { src: homeShirts1, type: 'image' }, 
+      { src: homeShirts2, type: 'image' },
+      { src: homeShirts3, type: 'image' },
+      { src: homeShirts4, type: 'image' },
+      { src: homeShirts5, type: 'image' },
+      { src: homeShirts6, type: 'image' },
+    ],
+    color: 'Red',
+    name: "i'll be there to take you home",
+    medium: 'embroidery, linocut print, and screenprint on thrifted button up shirts with found materials',
+    year: '2025',
+    details: '(a collaboration with Sahana Vathsa)',
+  },
+  {
+    media: [
+      { src: handBag1, type: 'image' }, 
+      { src: handBag2, type: 'image' },
+      { src: handBag3, type: 'image' },
+    ],
+    color: 'Blue',
+    name: 'Hand bag',
+    medium: 'sewn bag, lino cut patches, hand embroidery',
+    year: '2025',
+    details: '',
+  },
+  {
+    media: [
+      { src: wool1, type: 'image' }, 
+      { src: wool2, type: 'image' },
+      { src: wool3, type: 'image' },
+      { src: wool4, type: 'image' },
+    ],
+    color: 'Green',
+    name: 'Wool chefs hat',
+    medium: 'patchworked wool and freehand embroidery',
+    year: '2025',
+    details: '',
+  },
+  {
+    media: [
+      { src: welcome1, type: 'image' }, 
+      { src: welcome2, type: 'image' },
+      { src: welcome3, type: 'image' },
+    ],
+    color: 'Blue',
+    name: 'welcome',
+    medium: 'wax resist indigo dyed cotton noren',
+    year: '2024',
+    details: '',
+  },
+  {
+    media: [{ src: dragonMap, type: 'image' }],
+    color: 'Red',
+    name: 'Dragon map',
+    medium: 'embroidery on canvas bag',
+    year: '2022',
+    details: '',
+  },
+];
+
 const prints = [
-  [downTheDrain, 'Green', '"Down the drain"', 'linocut on paper', '2024', false],
-  [redacted, 'Red', '"Redacted"', 'screenprint on paper', '2022', false],
-  [generations, 'Blue', '"Taxonomy"', 'screenprint on paper', '2022', false],
-  [threeWiseFools, 'Blue', '"Three wise fools"', 'collage with screenprints and linocuts', '2022', false],
-  [kitchenShelves, 'Green', '"Banks Street kitchen - shelves"', 'lithograph on paper', '2023', false],
-  [kitchenTable, 'Red', '"Banks Street kitchen - table"', 'lithograph on paper', '2023', false],
-  [waterTiles, 'Red', '"Water tiles"', 'screenprint on paper', '2022', false],
-  [hongKong, 'Green', '"Hong Kong map"', 'lithograph and screenprint on paper', '2023', false],
-  [kittyLove, 'Blue', '"Love"', 'lithograph on paper', '2023', false],
-  [lessOfAStrangerBlack, 'Blue', '"Less of a stranger (black)"', 'linocut on paper', '2023', false],
-  [lessOfAStrangerGold, 'Red', '"Less of a stranger (gold)"', 'linocut on paper', '2023', false],
+  {
+    media: [{ src: downTheDrain, type: 'image' }],
+    color: 'Green',
+    name: 'Down the drain',
+    medium: 'linocut on paper',
+    year: '2024',
+    details: '',
+  },
+  {
+    media: [{ src: redacted, type: 'image' }],
+    color: 'Red',
+    name: 'Redacted',
+    medium: 'screenprint on paper',
+    year: '2022',
+    details: '',
+  },
+  {
+    media: [
+      { src: blueprint, type: 'image' },
+      { src: blueprintFront, type: 'image' },
+    ],
+    color: 'Green',
+    name: 'Blueprint',
+    medium: 'paper stencil, red string, shadow',
+    year: '2023',
+    details: '',
+  },
+  {
+    media: [{ src: generations, type: 'image' }],
+    color: 'Blue',
+    name: 'Taxonomy',
+    medium: 'screenprint on paper',
+    year: '2022',
+    details: '',
+  },
+  {
+    media: [{ src: kitchenShelves, type: 'image' }],
+    color: 'Green',
+    name: 'Banks Street kitchen - shelves',
+    medium: 'lithograph on paper',
+    year: '2023',
+    details: '',
+  },
+  {
+    media: [{ src: kitchenTable, type: 'image' }],
+    color: 'Red',
+    name: 'Banks Street kitchen - table',
+    medium: 'lithograph on paper',
+    year: '2023',
+    details: '',
+  },
+  {
+    media: [{ src: threeWiseFools, type: 'image' }],
+    color: 'Blue',
+    name: 'Three wise fools',
+    medium: 'collage with screenprints and linocuts',
+    year: '2022',
+    details: '',
+  },
+  {
+    media: [{ src: waterTiles, type: 'image' }],
+    color: 'Red',
+    name: 'Water tiles',
+    medium: 'screenprint on paper',
+    year: '2022',
+    details: '',
+  },
+  {
+    media: [{ src: hongKong, type: 'image' }],
+    color: 'Green',
+    name: 'Hong Kong map',
+    medium: 'lithograph and screenprint on paper',
+    year: '2023',
+    details: '',
+  },
+  {
+    media: [
+      { src: lessOfAStrangerGold, type: 'image' },
+      { src: lessOfAStrangerBlack, type: 'image' },
+    ],
+    color: 'Red',
+    name: 'Less of a stranger',
+    medium: 'linocut on paper',
+    year: '2023',
+    details: '',
+  },
+  {
+    media: [{ src: kittyLove, type: 'image' }],
+    color: 'Blue',
+    name: 'Love',
+    medium: 'lithograph on paper',
+    year: '2023',
+    details: '',
+  },
 ];
 
 const paintings = [
-  [glassWater, 'Red', '"Glass and water"', 'acrylic on canvas', '2024', false],
-  [home, 'Green', '"Home"', 'oil on canvas', '2021', false],
-  [atoll, 'Red', '"Atoll"', 'acrylic on paper', '2022', false],
-  [flowerPeople, 'Blue', '"Flower people"', 'acrylic and wire on paper', '2021', false],
-  [bathroom, 'Red', '"Bathroom"', 'gouache on paper', '2021', false],
-  [ferrisWheel, 'Green', '"Ferris wheel"', 'oil on canvas', '2021', false],
-  [familyDinner, 'Blue', '"Family dinner"', 'oil on canvas', '2021', false],
-  [mindPalace, 'Green', '"Mind palace"', 'oil on canvas', '2021', false],
-];
-
-const mixedMedia = [
-  [banksStreetKitchen, 'Blue', '"Banks street kitchen"', 'lithograph on paper and cling wrap', '2023', false],
-  [threeWiseFools, 'Blue', '"Three wise fools"', 'collage with screenprints and linocuts', '2022', false],
-  [flowerPeople, 'Blue', '"Flower people"', 'acrylic and wire on paper', '2021', false],
-  [blueprint, 'Green', '"Blueprint"', 'paper stencil, red string', '2023', false],
-  [dragonMap, 'Red', '"Dragon map"', 'embroidery on canvas bag', '2022', false],
+  {
+    media: [
+      { src: meditations1, type: 'image' },
+      { src: meditations2, type: 'image' },
+      { src: meditations3, type: 'image' },
+    ],
+    color: 'Blue',
+    name: 'Meditations',
+    medium: 'acrylic, embroidery, and chinese ornamentation on canvas',
+    year: '2025',
+    details: '',
+  },
+  {
+    media: [{ src: glassWater, type: 'image' }],
+    color: 'Red',
+    name: 'Glass and water',
+    medium: 'acrylic on canvas',
+    year: '2024',
+    details: '',
+  },
+  {
+    media: [{ src: home, type: 'image' }],
+    color: 'Green',
+    name: 'Home',
+    medium: 'oil on canvas',
+    year: '2021',
+    details: '',
+  },
+  {
+    media: [{ src: atoll, type: 'image' }],
+    color: 'Red',
+    name: 'Atoll',
+    medium: 'acrylic on paper',
+    year: '2022',
+    details: '',
+  },
+  {
+    media: [{ src: flowerPeople, type: 'image' }],
+    color: 'Blue',
+    name: 'Flower people',
+    medium: 'acrylic and wire on paper',
+    year: '2021',
+    details: '',
+  },
+  {
+    media: [{ src: bathroom, type: 'image' }],
+    color: 'Red',
+    name: 'Bathroom',
+    medium: 'gouache on paper',
+    year: '2021',
+    details: '',
+  },
+  {
+    media: [{ src: ferrisWheel, type: 'image' }],
+    color: 'Green',
+    name: 'Ferris wheel',
+    medium: 'oil on canvas',
+    year: '2021',
+    details: '',
+  },
+  {
+    media: [{ src: familyDinner, type: 'image' }],
+    color: 'Blue',
+    name: 'Family dinner',
+    medium: 'oil on canvas',
+    year: '2021',
+    details: '',
+  },
+  {
+    media: [{ src: mindPalace, type: 'image' }],
+    color: 'Green',
+    name: 'Mind palace',
+    medium: 'oil on canvas',
+    year: '2021',
+    details: '',
+  },
 ];
 
 const exhibitionWorks = [
-  [exhibitionPoster, 'Green', 'Exhibition poster', '', '', false],
-  [artistStatement, 'Red', "Artist's statement", '', '', false],
-  [exhibition, 'Blue', 'Exhibition room', '', '', false],
-  [somp1, 'Red', '"Shadow of my past (part 1)"', 'lasercut on paper, red string', '2023', false],
-  [banksStreetKitchen, 'Blue', '"Banks street kitchen"', 'lithograph on paper and cling wrap', '2023', false],
-  [somp2, 'Red', '"Shadow of my past (part 2)"', 'lasercut on paper, red string', '2023', false],
-  [home, 'Green', '"Home"', 'oil on canvas', '2021', false],
-  [threeWiseFools, 'Blue', '"Three wise fools"', 'collage with screenprints and linocuts', '2022', false],
-  [dragonMap, 'Red', '"Dragon map"', 'embroidery on canvas bag', '2022', false],
-  [lessOfAStranger, 'Blue', '"Less of a stranger"', 'linocut on paper', '2023', false],
-  [somp3, 'Red', '"Shadow of my past (part 3)"', 'lasercut on paper, red string', '2023', false],
-  [redacted, 'Green', '"Redacted"', 'screenprint on paper', '2022', false],
-  [familyDinner, 'Blue', '"Family dinner"', 'oil on canvas', '2021', false],
-  [somp4, 'Red', '"Shadow of my past (part 4)"', 'lasercut on paper, red string', '2023', false],
-  [atoll, 'Red', '"Atoll"', 'acrylic on paper', '2022', false],
-  [atollCharcoal, 'Red', '"Atoll"', 'charcoal on paper', '2022', false],
-  [blueprint, 'Green', '"Blueprint"', 'paper stencil, red string', '2023', false],
-  [blueprintFront, 'Green', '"Blueprint"', 'paper stencil, red string', '2023', false],
+  { media: [{ src: exhibitionPoster, type: 'image' }], color: 'Green', name: 'Exhibition poster', year: '', medium: '', details: '' },
+  { media: [{ src: artistStatement, type: 'image' }], color: 'Red', name: "Artist's statement", year: '', medium: '', details: '' },
+  { media: [{ src: exhibition, type: 'image' }], color: 'Blue', name: 'Exhibition room', year: '', medium: '', details: '' },
+  { media: [{ src: somp1, type: 'image' }], color: 'Red', name: 'Shadow of my past (part 1)', medium: 'lasercut on paper, red string', year: '2023', details: '' },
+  { media: [{ src: banksStreetKitchen, type: 'image' }], color: 'Blue', name: 'Banks street kitchen', medium: 'lithograph on paper and cling wrap', year: '2023', details: '' },
+  { media: [{ src: somp2, type: 'image' }], color: 'Red', name: 'Shadow of my past (part 2)', medium: 'lasercut on paper, red string', year: '2023', details: '' },
+  { media: [{ src: home, type: 'image' }], color: 'Green', name: 'Home', medium: 'oil on canvas', year: '2021', details: '' },
+  { media: [{ src: threeWiseFools, type: 'image' }], color: 'Blue', name: 'Three wise fools', medium: 'collage with screenprints and linocuts', year: '2022', details: '' },
+  { media: [{ src: dragonMap, type: 'image' }], color: 'Red', name: 'Dragon map', medium: 'embroidery on canvas bag', year: '2022', details: '' },
+  { media: [{ src: lessOfAStranger, type: 'image' }], color: 'Blue', name: 'Less of a stranger', medium: 'linocut on paper', year: '2023', details: '' },
+  { media: [{ src: somp3, type: 'image' }], color: 'Red', name: 'Shadow of my past (part 3)', medium: 'lasercut on paper, red string', year: '2023', details: '' },
+  { media: [{ src: redacted, type: 'image' }], color: 'Green', name: 'Redacted', medium: 'screenprint on paper', year: '2022', details: '' },
+  { media: [{ src: familyDinner, type: 'image' }], color: 'Blue', name: 'Family dinner', medium: 'oil on canvas', year: '2021', details: '' },
+  { media: [{ src: somp4, type: 'image' }], color: 'Red', name: 'Shadow of my past (part 4)', medium: 'lasercut on paper, red string', year: '2023', details: '' },
+  {
+    media: [
+      { src: atoll, type: 'image' },
+      { src: atollCharcoal, type: 'image' },
+    ],
+    color: 'Red',
+    name: 'Atoll',
+    medium: 'acrylic and charcoal on paper',
+    year: '2022',
+    details: '',
+  },
+  {
+    media: [
+      { src: blueprint, type: 'image' },
+      { src: blueprintFront, type: 'image' },
+    ],
+    color: 'Green',
+    name: 'Blueprint',
+    medium: 'paper stencil, red string',
+    year: '2023',
+    details: '',
+  },
 ];
+
 
 /* ---------- COMPONENTS ---------- */
 
 function BackgroundImage() {
-  return <img src={desktopBg} alt="background" className="background desktop" />;
+  return <img src={desktopBg} alt="background" className="background" />;
 }
 
 function Bio() {
   return (
     <div className="artistStatementContainer">
-      <img src={bioPic} className="biopic"/>
+      <img src={bioPic} className="biopic" />
       <div className="artistBioText">
-        Eva Lau is based in NYC and is inspired by home. She enjoys exploring, through her work,
-        home as a physical and conceptual space, as a collection of memories, as a result of care
-        and labor, as experiences with people. Patterns, colors, and textures are informed by 
-        observations and reflections from complex dynamics within and surrounding the home. Feelings
-        arise from trying to understand what often cannot be understood. The resulting textiles, prints,
-        and paintings attempt to parse through those feelings regardless.
+        I am an artist based in New York City, and my work is comprised of experiential events as well as material forms.
       </div>
       <div className="artistBioText">
-        Eva is medium agnostic and considers every meal she makes a part of her artistic ritual and practice.
+        My experiential work involves event design to understand how to develop and maintain meaningful relationships.
+        In creating and hosting these events, I explore how deeper connections with other people provide a feeling of
+        fullness and satisfaction in our lives. Often set in a home, I facilitate the experience of collective home
+        building by combining food, music, and artistic expression. Through the resulting interactions between my guests, 
+        all of our past notions of home and self are brought into the same, present space.
+      </div>
+      <div className="artistBioText">
+        My material work is informed by reflecting on and learning from the past. I create to understand my family, the 
+        homes we've inhabited, and the complexities that arise. Through symbolic imagery, repeating patterns, and language, 
+        my material works show an understanding that memories are not fixed. It makes physical the way the past becomes an 
+        active participant in the present.
+      </div>
+      <div className="artistBioText">
+       Process driven and labor intensive work is at the core of both my experiential and material works. The resulting events, 
+       fabric pieces, and prints are time consuming and tedious to create, but it is the most rewarding, fulfilling, and functional 
+       to experience. In resisting convenience, efficiency, and productivity in my process, I emphasize the importance of labor in 
+       creating fulfilling relationships.
       </div>
     </div>
   );
 }
 
-function Home() {
-  return null;
+function EmbeddedSite({ src, width = 1000, height = 600, scale = 0.8 }) {
+  // Calculate scaled width/height
+  const scaledWidth = width * scale;
+  const scaledHeight = height * scale;
+
+  return (
+    <div
+      className="embeddedSiteContainer"
+      style={{
+        width: `${scaledWidth}px`,
+        height: `${scaledHeight}px`,
+      }}
+    >
+      <iframe
+        src={src}
+        title="Embedded Website"
+        className="embeddedSiteIframe"
+        sandbox="allow-scripts allow-same-origin allow-forms"
+      />
+    </div>
+  );
 }
 
-function Content({ src, color, name, medium, year, isVideo }) {
+function Events() {
+  return (
+    <div className="events">
+      <div className="housesittingContainer">
+        <span className="sectionTitle">Housesitting</span>
+        <div className="artistBioText">
+          Housesitting was a one-night exhibition / concert / dinner party on June 7th, 2025. Hosted
+          in my apartment and curated with two friends, the event was designed and inspired around the
+          exploration of home while in a home-space.
+        </div>
+        <div className="artistBioText">
+          <a href="https://housesitting.site" target="_blank" rel="noopener noreferrer">
+            Click here to go to the Housesitting website!
+          </a>
+        </div>
+        <EmbeddedSite src="https://housesitting.site" />
+      </div>
+    </div>
+  );
+}
+
+function Carousel({ media, color, index, setIndex }) {
+  const item = media[index];
+
+  const next = () => setIndex((index + 1) % media.length);
+  const prev = () => setIndex((index - 1 + media.length) % media.length);
+
+  return (
+    <div className="imageAndArrows">
+      {media.length > 1 && (
+        <FontAwesomeIcon
+          icon={faArrowLeft}
+          className={color}
+          onClick={prev}
+        />
+      )}
+
+      {item.type === 'video'
+        ? <video src={item.src} className="modalPhoto" controls />
+        : <img src={item.src} className="modalPhoto" />
+      }
+
+      {media.length > 1 && (
+        <FontAwesomeIcon
+          icon={faArrowRight}
+          className={color}
+          onClick={next}
+        />
+      )}
+    </div>
+  );
+}
+
+
+function Content({ media, color, name, medium, year, details = '' }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [galleryIndex, setGalleryIndex] = useState(0);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [isOpen]);
+
+  if (!media || media.length === 0) return null;
+
+  const first = media[galleryIndex];
+
+  
+
+  const next = (e) => {
+    e.stopPropagation();
+    setGalleryIndex((galleryIndex + 1) % media.length);
+  };
+
+  const prev = (e) => {
+    e.stopPropagation();
+    setGalleryIndex((galleryIndex - 1 + media.length) % media.length);
+  };
 
   return (
     <>
+    <div className="galleryItemWrapper">
       <div className="galleryItem">
-        {isVideo ? (
-          <video src={src} className={`defaultPhoto photo${color}`} onClick={() => setIsOpen(true)} />
-        ) : (
-          <img src={src} className="defaultPhoto" onClick={() => setIsOpen(true)} />
+        {media.length > 1 && (
+          <FontAwesomeIcon
+            icon={faArrowLeft}
+            className={`galleryArrow ${color}`}
+            onClick={prev}
+          />
+        )}
+
+        <div className="galleryMedia" onClick={() => setIsOpen(true)}>
+          {first.type === 'video'
+            ? <video src={first.src} className={`defaultPhoto photo${color}`} />
+            : <img src={first.src} className="defaultPhoto" />
+          }
+        </div>
+
+        {media.length > 1 && (
+          <FontAwesomeIcon
+            icon={faArrowRight}
+            className={`galleryArrow ${color}`}
+            onClick={next}
+          />
         )}
       </div>
+      <div className="galleryLabel">
+        <span><i>{name}</i></span>
+        {(year || medium) && (
+          <span>
+            <i>
+              {year ? year : ''}{year && medium ? ' | ' : ''}{medium ? medium : ''}
+            </i>
+          </span>
+        )}
+        {details && <span><i>{details}</i></span>}
+      </div>
+    </div>
 
       {isOpen && (
-        <div className={`modal modal${color}`}>
-          <FontAwesomeIcon icon={faCircleXmark} className={`xButton ${color}`} onClick={() => setIsOpen(false)} />
-          <div className="imgContainer">
-            <div className="imageAndArrows">
-              {/* <FontAwesomeIcon icon={faArrowLeft} className={color} /> */}
-              {isVideo ? <video src={src} className="modalPhoto" /> : <img src={src} className="modalPhoto" />}
-              {/* <FontAwesomeIcon icon={faArrowRight} className={color} /> */}
-            </div>
-            <div className="label">
-              <span><i>{name}</i></span>
-              {medium && <span><i>{medium}</i></span>}
-              {year && <span><i>{year}</i></span>}
+        <div
+          className="modalOverlay"
+          onClick={() => setIsOpen(false)}
+        >
+          <div
+            className={`modal modal${color}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <FontAwesomeIcon
+              icon={faCircleXmark}
+              className={`xButton ${color}`}
+              onClick={() => setIsOpen(false)}
+            />
+
+            <div className="imgContainer">
+              <Carousel
+                media={media}
+                color={color}
+                index={galleryIndex}
+                setIndex={setGalleryIndex}
+              />
+
+              <div className="label">
+                <span><i>{name}</i></span>
+                {medium && <span><i>{medium}</i></span>}
+                {year && <span><i>{year}</i></span>}
+              </div>
             </div>
           </div>
         </div>
@@ -162,21 +564,13 @@ function Content({ src, color, name, medium, year, isVideo }) {
   );
 }
 
+
 function GallerySection({ title, works }) {
   return (
     <div className="section">
       <span className="sectionTitle">{title}</span>
       <div className="gallery">
-        {works.map((item, i) => (
-          <Content key={i} {...{
-            src: item[0],
-            color: item[1],
-            name: item[2],
-            medium: item[3],
-            year: item[4],
-            isVideo: item[5],
-          }} />
-        ))}
+        {works.map((item, i) => <Content key={i} {...item} />)}
       </div>
     </div>
   );
@@ -189,9 +583,10 @@ function Filters() {
   return (
     <div className="filterSection">
       <div className="filters">
+        <Link to="/fabric" className={active('/fabric') ? 'filterButtonOnBlue photoBlue' : 'filterButtonOffBlue'}><strong>fabric</strong></Link>
         <Link to="/prints" className={active('/prints') ? 'filterButtonOnRed photoRed' : 'filterButtonOffRed'}><strong>prints</strong></Link>
         <Link to="/paintings" className={active('/paintings') ? 'filterButtonOnGreen photoGreen' : 'filterButtonOffGreen'}><strong>paintings</strong></Link>
-        <Link to="/mixed-media" className={active('/mixed-media') ? 'filterButtonOnBlue photoBlue' : 'filterButtonOffBlue'}><strong>mixed media works</strong></Link>
+        <Link to="/events" className={active('/events') ? 'filterButtonOnBlue photoBlue' : 'filterButtonOffBlue'}><strong>events</strong></Link>
         <Link to="/exhibition" className={active('/exhibition') ? 'filterButtonOnRed photoRed' : 'filterButtonOffRed'}><strong><i>Home Coming</i> exhibition</strong></Link>
       </div>
     </div>
@@ -212,33 +607,25 @@ export default function App() {
               <img src={logo} className="logo" />
             </Link>
             <span className="bio">
-              <Link to="/bio" className="bioLink">
-                <u>Eva Lau</u>
-              </Link>
-              {' '}is an artist that likes to make all sorts of things, such as...
+              <Link to="/bio" className="bioLink"><u>Eva Lau</u></Link>{' '}
+              is an artist that likes to make all sorts of things, such as...
             </span>
           </div>
 
           <Filters />
 
           <Routes>
-            <Route path="/" element={<Home />} />
             <Route path="/bio" element={<Bio />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/fabric" element={<GallerySection title="fabric" works={fabric} />} />
             <Route path="/prints" element={<GallerySection title="prints" works={prints} />} />
             <Route path="/paintings" element={<GallerySection title="paintings" works={paintings} />} />
-            <Route path="/mixed-media" element={<GallerySection title="mixed media works" works={mixedMedia} />} />
             <Route path="/exhibition" element={<GallerySection title={<><em>Home Coming</em> exhibition</>} works={exhibitionWorks} />} />
           </Routes>
 
           <div className="contact">
             <span>contact: <a href="mailto:laueva1219@gmail.com">laueva1219@gmail.com</a></span>
-            <span>instagram: <a
-              href="https://www.instagram.com/evalau.art/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @evalau.art
-            </a></span>
+            <span>instagram: <a href="https://www.instagram.com/evalau.art/" target="_blank" rel="noopener noreferrer">@evalau.art</a></span>
           </div>
         </div>
       </div>
