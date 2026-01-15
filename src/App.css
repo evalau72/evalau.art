@@ -3,7 +3,7 @@
   width: 100%;
   height: 100vh;
   overflow: auto;
-  /* font-family: 'Kosugi', sans-serif; */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: rgb(41, 19, 16);
 }
 
@@ -50,7 +50,7 @@
   align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
-  gap: 20px;
+  gap: 40px;
 }
 
 .bioLink {
@@ -88,10 +88,17 @@ u {
 .headerContainer {
   display: flex;
   gap: 30px;
-  align-items: flex-end;
+  align-items: center;
   padding-top: 50px;
   justify-content: center;
   width: 100%;
+}
+
+.headerContainerRight {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 30px;
 }
 
 .header {
@@ -199,8 +206,6 @@ u {
   border: none;
 }
 
-
-
 .filterSection {
   display: flex;
   flex-direction: column;
@@ -210,7 +215,7 @@ u {
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 10px;
+  padding: 10px 10px 10px 0px;
   width: 100%;
   /* background-color: rgb(247,246,235); */
   margin: 0;
@@ -222,8 +227,8 @@ u {
 
 .filters {
   display: flex;
-  align-self: center;
-  justify-content: center;
+  align-self: left;
+  justify-content: left;
   gap: 10px;
   flex-wrap: wrap;
 }
@@ -318,14 +323,6 @@ u {
   text-align: center;
   padding: 10px 10px 15px 10px;
 }
-
-/* .defaultPhoto {
-  padding: 6px; 
-  width: 100%; 
-  height: auto; 
-  display: block;
-  object-fit: cover;
-} */
 
 .defaultPhoto {
   height: 450px;        /* choose your row height */
@@ -487,11 +484,6 @@ u {
   transform: none;           /* ensures modal image stays original size */
 }
 
-@media (max-width: 1000px) {
-
-
-}
-
 @media (max-width: 768px) {
   /* .galleryItem {
     max-width: 75%;
@@ -563,6 +555,21 @@ u {
     padding-top: 30px;
     width: 90%;
     gap: 20px;
+  }
+
+  .headerContainerRight {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 0px;
+  }
+
+  .filters {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
   }
 
   .logo {

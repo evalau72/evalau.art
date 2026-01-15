@@ -41,7 +41,7 @@ import kittyLove from './assets/kitty-love.jpg';
 import lessOfAStranger from './assets/less-of-a-stranger.jpg';
 import lessOfAStrangerBlack from './assets/less-of-a-stranger-black.jpg';
 import lessOfAStrangerGold from './assets/less-of-a-stranger-gold.jpg';
-import meditations1 from './assets/meditations_1_hr.webp';
+import meditations1 from './assets/mediatations_1.jpg';
 import meditations2 from './assets/meditations_2_hr.webp';
 import meditations3 from './assets/meditations_3_hr.webp';
 import mindPalace from './assets/mind-palace.jpg';
@@ -461,6 +461,10 @@ function Content({ media, color, name, medium, year, details = '' }) {
   const [galleryIndex, setGalleryIndex] = useState(0);
 
   useEffect(() => {
+    setGalleryIndex(0);
+  }, [media]);
+
+  useEffect(() => {
     if (isOpen) {
       document.body.classList.add('modal-open');
     } else {
@@ -474,9 +478,8 @@ function Content({ media, color, name, medium, year, details = '' }) {
 
   if (!media || media.length === 0) return null;
 
-  const first = media[galleryIndex];
-
-  
+  const first = media[galleryIndex] ?? media[0];
+  if (!first) return null;
 
   const next = (e) => {
     e.stopPropagation();
@@ -568,7 +571,6 @@ function Content({ media, color, name, medium, year, details = '' }) {
 function GallerySection({ title, works }) {
   return (
     <div className="section">
-      <span className="sectionTitle">{title}</span>
       <div className="gallery">
         {works.map((item, i) => <Content key={i} {...item} />)}
       </div>
@@ -606,13 +608,14 @@ export default function App() {
             <Link to="/">
               <img src={logo} className="logo" />
             </Link>
-            <span className="bio">
-              <Link to="/bio" className="bioLink"><u>Eva Lau</u></Link>{' '}
-              is an artist that likes to make all sorts of things, such as...
-            </span>
+            <div className='headerContainerRight'>
+              <span className="bio">
+                <Link to="/bio" className="bioLink"><u>Eva Lau</u></Link>{' '}
+                is an artist that likes to make all sorts of things, such as...
+              </span>
+              <Filters />
+            </div>
           </div>
-
-          <Filters />
 
           <Routes>
             <Route path="/bio" element={<Bio />} />
