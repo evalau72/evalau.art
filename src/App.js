@@ -15,6 +15,8 @@ import banksStreetKitchen from './assets/banks-street-kitchen.jpg';
 import bathroom from './assets/bathroom.jpg';
 import blueprint from './assets/blueprint.jpg';
 import blueprintFront from './assets/blueprint-front-facing.jpg';
+import buttonBag1 from './assets/button_bag_1.JPG';
+import buttonBag2 from './assets/button_bag_2.JPG';
 import downTheDrain from './assets/down-the-drain.jpg';
 import dragonMap from './assets/dragon-map.jpg';
 import exhibition from './assets/exhibition.jpg';
@@ -45,12 +47,19 @@ import meditations1 from './assets/mediatations_1.jpg';
 import meditations2 from './assets/meditations_2_hr.webp';
 import meditations3 from './assets/meditations_3_hr.webp';
 import mindPalace from './assets/mind-palace.jpg';
+import patchBag1 from './assets/patch_bag_1.JPG';
+import patchBag2 from './assets/patch_bag_2.JPG';
+import patchBag3 from './assets/patch_bag_3.JPG';
 import redacted from './assets/redacted.jpg';
 import somp1 from './assets/somp1.jpg';
 import somp2 from './assets/somp2.jpg';
 import somp3 from './assets/somp3.jpg';
 import somp4 from './assets/somp4.jpg';
+import spiralBag1 from './assets/spiral_bag_1.JPG';
+import spiralBag2 from './assets/spiral_bag_2.JPG';
+import spiralBag3 from './assets/spiral_bag_3.JPG';
 import threeWiseFools from './assets/three-wise-fools.jpg';
+import travelLog from './assets/travel_log_1.mov';
 import waterTiles from './assets/water-tiles.jpg';
 import welcome1 from './assets/welcome_1_hr.webp'
 import welcome2 from './assets/welcome_2_hr.webp'
@@ -65,6 +74,41 @@ import bioPic from './assets/biopic.jpg';
 /* ---------- DATA ---------- */
 
 const fabric = [
+  {
+    media: [
+      { src: patchBag1, type: 'image' }, 
+      { src: patchBag2, type: 'image' },
+      { src: patchBag3, type: 'image' },
+    ],
+    color: 'Blue',
+    name: "patch bag",
+    medium: 'quilted bag with upholstery fabric, block print on canvas patches, hand embroidery',
+    year: '2026',
+    details: '',
+  },
+  {
+    media: [
+      { src: spiralBag1, type: 'image' }, 
+      { src: spiralBag2, type: 'image' },
+      { src: spiralBag3, type: 'image' },
+    ],
+    color: 'Green',
+    name: "spiral bag",
+    medium: 'quilted bag with upholstery fabric, block print on canvas patches',
+    year: '2026',
+    details: '',
+  },
+  {
+    media: [
+      { src: buttonBag1, type: 'image' }, 
+      { src: buttonBag2, type: 'image' },
+    ],
+    color: 'Blue',
+    name: "spiral bag",
+    medium: 'patchworked bag with upholstery fabric, block print on canvas patches, machine embroidery',
+    year: '2026',
+    details: '',
+  },
   {
     media: [
       { src: homeShirts1, type: 'image' }, 
@@ -128,6 +172,14 @@ const fabric = [
 ];
 
 const prints = [
+  {
+    media: [{ src: travelLog, type: 'video' }],
+    color: 'Red',
+    name: 'Travel Log',
+    medium: 'Stop motion video of handbound book (Chinese knotting thread, screenprint on linen, text on rice paper, photographs on matte photo paper)',
+    year: '2026',
+    details: '',
+  },
   {
     media: [{ src: downTheDrain, type: 'image' }],
     color: 'Green',
@@ -352,7 +404,7 @@ function BackgroundImage() {
 function Bio() {
   return (
     <div className="artistStatementContainer">
-      <img src={bioPic} className="biopic" />
+      <img src={bioPic} alt="Eva" className="biopic" />
       <div className="artistBioText">
         I am an artist based in New York City, and my work is comprised of experiential events as well as material forms.
       </div>
@@ -441,7 +493,7 @@ function Carousel({ media, color, index, setIndex }) {
 
       {item.type === 'video'
         ? <video src={item.src} className="modalPhoto" controls />
-        : <img src={item.src} className="modalPhoto" />
+        : <img src={item.src} alt="art piece" className="modalPhoto" />
       }
 
       {media.length > 1 && (
@@ -506,7 +558,7 @@ function Content({ media, color, name, medium, year, details = '' }) {
         <div className="galleryMedia" onClick={() => setIsOpen(true)}>
           {first.type === 'video'
             ? <video src={first.src} className={`defaultPhoto photo${color}`} />
-            : <img src={first.src} className="defaultPhoto" />
+            : <img src={first.src} alt="thumbnail" className="defaultPhoto" />
           }
         </div>
 
@@ -606,7 +658,7 @@ export default function App() {
         <div className="app">
           <div className="headerContainer">
             <Link to="/">
-              <img src={logo} className="logo" />
+              <img src={logo} alt="logo" className="logo" />
             </Link>
             <div className='headerContainerRight'>
               <span className="bio">
